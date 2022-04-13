@@ -1,0 +1,2 @@
+# spedoku
+Another Sudoku app
