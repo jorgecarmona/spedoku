@@ -50,7 +50,7 @@ function App() {
       const data = await fetch(`https://vast-chamber-17969.herokuapp.com/generate?difficulty=${difficulty}`);
       const json = await data.json();
       const puzzle = createPuzzle(json.puzzle);
-      console.log(data)
+
       setPuzzle(puzzle);
       setLoading(false);
     }
