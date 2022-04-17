@@ -1,5 +1,7 @@
-body {
-  background: #fafafa;
+button {
+  font-size: 18px;
+  font-weight: 500;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
 .App {
@@ -7,12 +9,13 @@ body {
 }
 
 .section-container {
-  margin: 24PX 0;
+  margin: 24px 0;
+  text-align: center;
 }
 
 .spedoku-container {
   width: 95%;
-  max-width: 600px;
+  max-width:540px;
   margin: 0px auto;
   padding: 0;
 }
@@ -23,6 +26,7 @@ body {
   border-radius: 1em;
   border: 3px solid #000;
   background-color: #f5f7fb;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
 .spedoku-table td {
@@ -43,94 +47,39 @@ body {
   text-align: center;
 }
 
-.difficulty-btn {
-  color: #fff;
-  line-height: 1.5715;
-  padding: 8px;
-  margin: 0 4px;
-  border: none;
-  width: 110px;
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.easy {
-  background: #61cf61;
-}
-
-.medium {
-  background: #FF964F;
-}
-
-.hard {
-  background: #FF6961;
-}
-
 .clear-btn {
+  background: #fff;
   color: #333;
-  font-weight: 600;
+  border: 1px solid rgb(222, 222, 222);
+  border-radius: 8px;
+  padding: 10px 24px;
+  margin-left: 120px;
 }
 
 .solve-btn {
   color: #fff;
-  border-color: #1890ff;
   background: #1890ff;
   text-shadow: 0 -1px 0 rgb(0 0 0 / 12%);
   box-shadow: 0 2px 0 rgb(0 0 0 / 5%);
   line-height: 1.5715;
   position: relative;
-  display: inline-block;
-  font-weight: 500;
-  white-space: nowrap;
   text-align: center;
-  cursor: pointer;
-  height: 40px;
-  border: 1px solid #d9d9d9;
-  font-size: 16px;
+  height: 60px;
+  border: 1px solid #1890ff;
   padding: 6.4px 15px;
-  width: 460px;
+  width: 510px;
+  border-radius: 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
 }
 
-.solution-btn {
-  line-height: 1.5715;
-  padding: 8px;
-  border: 1px solid #d9d9d9;
-  width: 110px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #333;
-  margin: 0;
-}
-
-.validate-btn {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-}
-
-.difficulty-pair-btn {
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-.pair-message {
-  border: 1px solid rgb(231, 231, 231);
-  border-left: none;
-  padding: 10px;
-  display: inline-block;
-}
-
-.validate-message {
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-  margin: 0 32px 0 0;
-}
-
-.difficulty-message {
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
+.spacer {
+  margin: 0 12px;
 }
 
 .loading {
   color: #333;
+  height: 500px;
+  vertical-align: middle;
+  display: table-cell;
+  width: 530px;
 }

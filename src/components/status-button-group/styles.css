@@ -1,0 +1,54 @@
+.status-btn-group {
+  display: inline-block;
+  border: 1px solid rgb(222, 222, 222);
+  border-radius: 8px;
+}
+
+.status-btn-group button {
+  border: none;
+  color: #fff;
+  padding: 10px 24px;
+  background: #1890ff;
+  width: 120px;
+}
+
+/* Clear floats (clearfix hack) */
+.status-btn-group:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.status-btn-group button:not(:last-child) {
+  border-right: none; /* Prevent double borders */
+}
+
+button.text-section {
+  background: #fff;
+  color: #333;
+  cursor: text;
+}
+
+.left-btn {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.right-btn {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.left-text {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.right-text {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.not-allowed {
+  cursor: not-allowed;
+}
