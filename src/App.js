@@ -115,26 +115,36 @@ function App() {
           <table className="spedoku-table">
             <tbody>
               {
-                puzzle.map((row, y) => (
-                  <tr
-                    key={y}
-                  >
-                    {
-                      row.map((value, x) => (
-                        <td
-                          key={x}
-                        >
-                          <input
-                            type="text"
-                            value={value || ''}
-                            onChange={e => setValue(x, y, e.target.value)}
-                            ref={inputRefs}
-                          />                        
-                        </td>
-                      ))
-                    }
-                  </tr>
-                ))
+                puzzle.map((row, y) => {
+                  const bottomCellStyle = y % 3 === 2 ? 'block-bottom-border' : '';
+
+                  return (
+                    <tr
+                      className={bottomCellStyle}
+                      key={y}
+                    >
+                      {
+                        row.map((value, x) => {
+                          const sideCellStyle = x % 3 === 2 ? 'block-side-border' : '';
+
+                          return (
+                            <td
+                            className={sideCellStyle}
+                              key={x}
+                            >
+                              <input
+                                type="text"
+                                value={value || ''}
+                                onChange={e => setValue(x, y, e.target.value)}
+                                ref={inputRefs}
+                              />                        
+                            </td>
+                          );
+                        })
+                      }
+                    </tr>
+                  );
+                })
               }          
             </tbody>
           </table>
