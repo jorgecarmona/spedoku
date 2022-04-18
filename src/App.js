@@ -33,12 +33,17 @@ const {
   solved,
 } = utils;
 
+const SOLVED = 'solved';
+const UNSOLVABLE = 'unsolvable';
+const UNSOLVED = 'unsolved';
+
+
 function App() {
   const inputRefs = React.createRef();
 
   const [puzzle, setPuzzle] = React.useState([]);
   const [difficulty, setDifficulty] = React.useState('easy');
-  const [validationMsg, setValidationMsg] = React.useState('unsolved');
+  const [validationMsg, setValidationMsg] = React.useState(UNSOLVED);
   const [loading, setLoading] = React.useState(true);
   
   const getPuzzleData = async (level) => {
@@ -52,13 +57,14 @@ function App() {
 
   React.useEffect(() => {
     setLoading(true);
-    setValidationMsg('unsolved');
+    setValidationMsg(UNSOLVED);
 
     getPuzzleData()
       .catch(console.error);    
   }, []);
 
   const handleClear = () => {
+    setValidationMsg(UNSOLVED);
     setPuzzle(getEmptyBoard());
   }
 
@@ -66,7 +72,7 @@ function App() {
     const solvedPuzzle = solve(puzzle);
     
     if (!solvedPuzzle) {
-      setValidationMsg('unsolvable');
+      setValidationMsg(UNSOLVABLE);
       return false;
     }
 
@@ -77,9 +83,9 @@ function App() {
     const validate = solved(puzzle);
     
     if (validate) {
-      setValidationMsg('solved')
+      setValidationMsg(SOLVED)
     } else {
-      setValidationMsg('unsolved');
+      setValidationMsg(UNSOLVED);
     }
   }
 
@@ -96,7 +102,7 @@ function App() {
   }
 
   const handleDifficultyLevel = (level) => {
-    setValidationMsg('unsolved');
+    setValidationMsg(UNSOLVED);
     
     getPuzzleData(level)
       .catch(console.error); 
