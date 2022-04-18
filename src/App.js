@@ -41,23 +41,22 @@ function App() {
   const [validationMsg, setValidationMsg] = React.useState('unsolved');
   const [loading, setLoading] = React.useState(true);
   
+  const getPuzzleData = async (level) => {
+    const data = await fetch(`https://vast-chamber-17969.herokuapp.com/generate?difficulty=${level}`);
+    const json = await data.json();
+    const puzzle = createPuzzle(json.puzzle);
+
+    setPuzzle(puzzle);
+    setLoading(false);
+  }
 
   React.useEffect(() => {
     setLoading(true);
     setValidationMsg('unsolved');
 
-    const getPuzzleData = async () => {
-      const data = await fetch(`https://vast-chamber-17969.herokuapp.com/generate?difficulty=${difficulty}`);
-      const json = await data.json();
-      const puzzle = createPuzzle(json.puzzle);
-
-      setPuzzle(puzzle);
-      setLoading(false);
-    }
-
     getPuzzleData()
       .catch(console.error);    
-  }, [difficulty]);
+  }, []);
 
   const handleClear = () => {
     setPuzzle(getEmptyBoard());
@@ -97,6 +96,11 @@ function App() {
   }
 
   const handleDifficultyLevel = (level) => {
+    setValidationMsg('unsolved');
+    
+    getPuzzleData(level)
+      .catch(console.error); 
+
     setDifficulty(level);
   }
 
